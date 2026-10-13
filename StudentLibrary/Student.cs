@@ -14,14 +14,34 @@ namespace StudentLibrary
         private static int studentCount = 0;  // its 'static' because it is shared among all instances of the class
 
 
+        public int Id         //property
+        {
+            get { return id; }
+            private set { id = value; }
+        }
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public int Age
+        {
+            get { return age; }
+            set { age = value; }
+        }
+        public static int StudentCount
+        {
+            get { return studentCount; }
+        }
+
 
 
         //dafault constructor, takes no parameters. Sets fields to following default values 
         public Student()
         {
-            this.id = studentCount++;
-            this.name = "John Doe";
-            this.age = 16; 
+            id = studentCount++;
+            name = "John Doe";
+            age = 16; 
         }
 
 
@@ -40,14 +60,13 @@ namespace StudentLibrary
         // prints out student's ID, name and age.
         public void Display()
         {
-            Console.WriteLine($"ID: {this.id}, Name: {this.name}, Age: {this.age}");
+            Console.WriteLine($"ID: {id}, Name: {name}, Age: {age}");
         }
 
         // increases student age by 1 year, returns student's age
         public int GetOlder()
         {
-            this.age++;
-            return this.age;
+            return ++age;
         }
 
     }
